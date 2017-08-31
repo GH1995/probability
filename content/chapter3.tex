@@ -3,20 +3,141 @@
 \section{联合分布与边缘分布}
 \label{sec:二维随机变量的联合分布与边缘分布}
 
+\begin{definition}[二维随机变量]
+    \[
+        (X, Y)
+    \]
+\end{definition}
+
+\begin{definition}[联合分布函数]
+    \[
+        F(x,y) = P\{ X \leqslant x, Y \leqslant y \}
+    \]
+\end{definition}
+
+\begin{definition}
+    \[
+        \begin{dcases}
+            F_X(x) = P\{ X \leqslant x  \} \\
+            F_Y(y) = P\{ Y \leqslant y  \}
+        \end{dcases}
+    \]
+\end{definition}
+
 \section{离散型}
 \label{sec:离散型}
+
+\subsection{联合分布律}
+\label{sub:联合分布律}
+
+\[
+    P\{ X = x_i, Y = y_j \} = p_{ij}
+\]
+
+\subsection{边缘分布律}
+\label{sub:边缘分布律}
+
+\[
+    \begin{dcases}
+        P \{ X = x_i \} = \sum_{j = 1}^n p_{ij} = p_{i:} \\
+        P \{ Y = y_i \} = \sum_{i = 1}^m p_{ij} = p_{:j}
+    \end{dcases}
+\]
 
 \section{连续型}
 \label{sec:连续型}
 
+\begin{definition}[联合密度函数$f(x,y)$]
+    \[
+        F(x, y) = \int_{-\infty}^x dx \int_{-\infty}^y f(x,y) dy
+    \]
+\end{definition}
+
+\subsection{边缘分布}
+\label{sub:边缘分布}
+
+\[
+    \begin{dcases}
+        f_X(x) = \int_{-\infty}^{+\infty} dy,\quad \text{边际密度函数} \\
+        F_X(x) = \int_{-\infty}^{+\infty} f_X(x) \dif x
+        = \int_{-\infty}^{x} \int_{-\infty}^{+\infty} f(x,y) \dif y ,\quad \text{边缘分布函数}
+    \end{dcases}
+\]
+
 \section{条件分布}
 \label{sec:条件分布}
 
+\[
+    \begin{dcases}
+        P\{ Y=y_j | X=x_i\} = \frac{p_{ij}}{p_{i:}} \\
+        f_{\frac{Y}{X}} (y|x) = \frac{f(x,y)}{f_X(x)}
+    \end{dcases}
+\]
+
 \section{随机变量的独立性}
 \label{sec:随机变量的独立性}
+
+等价于
+\[
+    F(x,y) = F_X(x) F_Y(y)
+\]
+
+\[
+    \begin{dcases}
+        p_{ij} = p_{i:} \times p_{:j} \\
+        f(x,y) = f_X(x) f_Y(y)
+    \end{dcases}
+\]
 
 \section{常见的}
 \label{sec:常见的}
 
 \section{函数分布}
 \label{sec:函数分布}
+
+$U = \varphi(X,Y)$
+$U$ 的分布函数为 $F_U(u) = P\{ U \leqslant u \} = P\{ \varphi(X,Y)\leqslant u \}$
+
+\subsection{离散型}
+\label{sub:离散型}
+
+\[
+    P\{ U=u_k \} = \sum_{\varphi(x_i, y_j) = u_k} p_{ij}
+\]
+
+\subsection{连续型}
+\label{sub:连续型}
+
+\[
+    F_U(u) = P\{U \leqslant u  \} = P\{\varphi(X,Y)\leqslant u \} = \iint_{\varphi(x,y) \leqslant u} f(x,y) \dif x \dif y
+\]
+
+\subsection{常见的}
+\label{sub:常见的}
+
+\subsubsection{max/min}
+\label{ssub:max_min}
+
+\begin{gather}
+    U = \min \{X, Y\} \\
+    V = \max \{X, Y \} \\
+    F_U(u) = 1 - \left[1-F_x(u)\right] \times \left[1-F_Y(u)\right] \\
+    F_V(v) = F_X(v) \times F_Y(v)
+\end{gather}
+
+\subsubsection{$X+Y$}
+\label{ssub:_x_y_}
+
+\[
+    \begin{aligned}
+        U = X + Y  \\
+        f_U(u) = \int_{-\infty}^{+\infty} f(x, u-x) \dif x = \int_{-\infty}^{+\infty} f(u-y, y) dy
+    \end{aligned}
+\]
+
+特别地，
+\begin{align}
+    X \sim B(m,p), Y \sim B(n,p) \quad & \quad U \sim B(m+n, p) \\
+    X \sim P(\lambda_1), Y \sim P(\lambda_2) \quad & \quad U \sim P(\lambda_1 + \lambda_2) \\
+    X \sim N(\mu_1,\sigma_1^2), Y \sim N(\mu_2, \sigma_2^2) \quad & \quad U \sim N(\mu_1 + \mu_2, \sigma_1^2 + \sigma_2^2)
+\end{align}

@@ -26,8 +26,8 @@
 
 \[
     \begin{aligned}
-        P(AB) = P(A) P(B |  A) \\
-        P(A_1 A_2 \cdots A_n) = P(A_1)\, P(A_2 | A_1) \, P(A_3 | A_1 A_2) \cdots P(A_n | A_1 \cdots A_{n-1})
+        P(AB) &= P(A) P(B |  A) \\
+        P(A_1 A_2 \cdots A_n) &= P(A_1)\, P(A_2 | A_1) \, P(A_3 | A_1 A_2) \cdots P(A_n | A_1 \cdots A_{n-1})
     \end{aligned}
 \]
 
@@ -35,7 +35,7 @@
 \label{sec:事件的独立性}
 
 \[
-    p(AB) = P(A) P(B)
+    P(AB) = P(A) P(B)
 \]
 
 \section{全概率公式与贝叶斯公式}
@@ -59,7 +59,7 @@
 \label{ssub:贝叶斯公式}
 
 \[
-    P(A_k | B ) = \frac{P(A_k) P(B | A_k)}{\sum P(A_i) P(B | A_i)}, \quad k = 1, 2, \cdots , n
+    P(A_k | B ) = \frac{P(A_k) P(B | A_k)}{\sum P(A_i) P(B | A_i)}
 \]
 
 \section{三种常见的概型}
@@ -71,7 +71,7 @@
 \subsection{几何概型}
 \label{sub:几何概型}
 
-\subsection{n 重贝努利试验}
+\subsection{$n$ 重贝努利试验}
 \label{sub:n_重贝努利试验}
 
 $B_k= \{ n \text{次试验中}A \text{出现}k\text{次} \}$
