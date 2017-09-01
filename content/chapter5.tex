@@ -3,8 +3,28 @@
 \section{切比雪夫不等式}
 \label{sec:切比雪夫不等式}
 
+\begin{gather}
+    P\{\abs{X- \mu} \geqslant \epsilon\}  \leqslant \frac{DX}{\epsilon^2} \\
+    P\{\abs{X- \mu} <  \epsilon\}  \geqslant 1- \frac{DX}{\epsilon^2}
+\end{gather}
+
 \section{大数定律}
 \label{sec:大数定律}
+
+\begin{itemize}
+    \item 切比雪夫大数定律
+    \item 独立同分布大数定律
+    \item 辛钦大数定律
+\end{itemize}
+
+\begin{theorem}
+    所有的大数定律都是指随机变量组在独立的条件下，若干个随笔建立的平均值依概率收敛到其数学期望的平均值，即
+    \begin{align}
+        \frac{1}{n} \sum_{i=1}^n X_i \xrightarrow{\text{独立}} E\left(\frac{1}{n}\sum_{i=1}^n X_i \right) = \mu \\
+        \intertext{更进一步，}
+        \frac{1}{n}\sum_{i=1}^n X_i^k \xrightarrow{\text{独立}} E\left(\frac{1}{n}\sum_{i=1}^n X_i^k \right) = \mu
+    \end{align}
+\end{theorem}
 
 \section{中心极限定理}
 \label{sec:中心极限定理}
