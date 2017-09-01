@@ -3,8 +3,99 @@
 \section{参数估计的种类}
 \label{sec:参数估计的种类}
 
+\begin{itemize}
+    \item 点估计
+    \item 区间估计
+\end{itemize}
+
 \section{点估计}
 \label{sec:点估计}
 
+\subsection{矩估计}
+\label{sub:矩估计}
+
+总体 $X \sim f(x, \theta)$，但参数 $\theta$ 未知，需要对参数 $\theta$ 进行估计。
+步骤
+1. 取样$X_1, X_2, \cdots, X_n$
+2. 计算样本均值 $\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$，根据大数定律有
+\[
+    \frac{1}{n} \sum_{i=1}^{n} X_i \to \frac{1}{n} \sum_{i=1}^n EX_i = EX
+\]
+3. 令 $\bar{X} = EX$，在 $EX$ 的结果中包含参数 $\theta \Rightarrow \hat{\theta}$
+
+若含有两个参数 $\theta_1, \theta_2$ ，由大数定律知
+\begin{enumerate}
+    \item $\bar{X} \to EX, A_2 = \frac{1}{n} \sum X_i^2 \to \frac{1}{n} \sum EX_i^2 =  EX^2$
+    \item 令$\bar{X} = EX, A_2 = EX^2$或令$\frac{1}{n} \sum \left(X_i-\bar{X}\right)^2=DX \Rightarrow \theta_1, \theta_2$ 的估计。
+\end{enumerate}
+
+
+\subsection{极大似然估计}
+\label{sub:极大似然估计}
+
+设 $X \sim f(x, \theta)$ 或 $X \sim f(x, \theta_1, \theta_2)$
+步骤：
+1.
+\begin{enumerate}
+    \item 对离散型
+    \[
+        L(x_1, x_2, \cdots, x_n; \theta) = \prod_{i=1}^n P\{X = x_i\}
+    \]
+    \item 对连续型
+    \[
+        L(x_1, x_2, \cdots , x_n; \theta) = \prod_{i=1}^n f(x_i; \theta)
+    \]
+\end{enumerate}
+2. 求
+\[
+    \ln L(x_1, x_2, \cdots , x_n; \theta)
+\]
+3.
+\begin{itemize}
+    \item 对一个参数令
+    \[
+        \frac{\dif}{\dif \theta} \ln L = 0
+    \]
+    \item 对两个参数令
+    \[
+        \frac{\partial}{\partial\theta_i} \ln L = 0, \quad i = 1, 2
+    \]
+\end{itemize}
+4. 解似然方程或方程组
+
+
 \section{区间估计}
 \label{sec:区间估计}
+
+1. 设 $X \sim N(\mu, \sigma^2), \quad X_1, X_2, \cdots, X_n$ 是来自总体样本 $X$的一个样本。
+若存在两个统计量 $\hat{\theta}_1\,,\hat{\theta}_2$，使得$P\{ \hat{\theta}_1 < \theta < \hat{\theta}_1\} = 1-\alpha$，称 $\left(\hat{\theta}_1,\hat{\theta}_2\right)$ 为参数 $\theta$ 的置信度为 $1-\alpha$ 的置信区间。
+\begin{itemize}
+    \item $\sigma^2$ 已知，$\mu$ 的置信度为 $1-\alpha$ 的置信区间为
+    \[
+        \left(\bar{X} - \frac{\sigma}{\sqrt{n}} u_{\frac{\alpha}{2}},
+        \bar{X} + \frac{\sigma}{\sqrt{n}} u_{\frac{\alpha}{2}}\right)
+    \]
+    \emph{ 区间长度与样本无关 }
+    \item $\sigma^2$未知，$\mu$的置信度为$1-\alpha$的置信区间为
+    \[
+        \left(\bar{X} - \frac{S}{\sqrt{n}} t_{\frac{\alpha}{2}}(n-1), \bar{X} + \frac{S}{\sqrt{n}} t_{\frac{\alpha}{2}}(n-1)\right)
+    \]
+    \emph{ 区间长度与样本有关 }
+    \item $\mu$未知，$\sigma$的置信度为$1-\alpha$的置信区间为
+    \[
+        \left(\frac{(n-1)S^2}{\chi_{\frac{\alpha}{2}}^2(n-1)}, \frac{(n-1)S^2}{\chi_{\frac{1-\alpha}{2}}^2(n-1)}\right)
+    \]
+    \item $\mu$已知，$\sigma$的置信度为$1-\alpha$的置信区间
+\end{itemize}
+
+2. 三个评价标准
+
+\begin{itemize}
+    \item 参数估计的无偏性
+    设 $\hat{\theta}$ 为 $\theta$ 的一个估计量，若 $E\hat{\theta} = \theta$，称 $\hat{\theta}$ 为 $\theta$ 的无偏估计量
+    \item 参数估计的有效性
+    设 $\hat{\theta}_1, \hat{\theta}_2$ 都是 $\theta$的无偏估计量， 若 $D(\hat{\theta}_1) < D(\hat{\theta}_2)$， 称 $\hat{\theta}_1$ 比 $\hat{\theta}_2$ 有效
+    \item 一致性
+    设 $\hat{\theta}$ 为 $\theta$ 的一个估计量，若 $\hat{\theta} \stackrel{P}{\longrightarrow} \theta$，称 $\hat{\theta}$ 为 $\theta$ 的一致估计
+\end{itemize}
+

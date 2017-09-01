@@ -18,24 +18,24 @@
 
 在事件 $A$ 发生的情况下 $B$ 发生的概率
 \[
-    P(B|A) = \frac{P(AB)}{P(A)}
+	P(B|A) = \frac{P(AB)}{P(A)}
 \]
 
 \subsection{乘法公式}
 \label{sub:乘法公式}
 
 \[
-    \begin{aligned}
-        P(AB) &= P(A) P(B |  A) \\
-        P(A_1 A_2 \cdots A_n) &= P(A_1)\, P(A_2 | A_1) \, P(A_3 | A_1 A_2) \cdots P(A_n | A_1 \cdots A_{n-1})
-    \end{aligned}
+	\begin{aligned}
+		P(AB)                 & = P(A) P(B |  A)                                                               \\
+		P(A_1 A_2 \cdots A_n) & = P(A_1)\, P(A_2 | A_1) \, P(A_3 | A_1 A_2) \cdots P(A_n | A_1 \cdots A_{n-1}) 
+	\end{aligned}
 \]
 
 \section{事件的独立性}
 \label{sec:事件的独立性}
 
 \[
-    P(AB) = P(A) P(B)
+	P(AB) = P(A) P(B)
 \]
 
 \section{全概率公式与贝叶斯公式}
@@ -45,21 +45,21 @@
 \label{ssub:完备事件组}
 
 \[
-    A_1 + A_2 + \cdots + A_n = \Omega
+	A_1 + A_2 + \cdots + A_n = \Omega
 \]
 
 \subsubsection{全概率公式}
 \label{ssub:全概率公式}
 
 \[
-    P(B) = \sum P(A_i) P(B | A_i)
+	P(B) = \sum P(A_i) P(B | A_i)
 \]
 
 \subsubsection{贝叶斯公式}
 \label{ssub:贝叶斯公式}
 
 \[
-    P(A_k | B ) = \frac{P(A_k) P(B | A_k)}{\sum P(A_i) P(B | A_i)}
+	P(A_k | B ) = \frac{P(A_k) P(B | A_k)}{\sum P(A_i) P(B | A_i)}
 \]
 
 \section{三种常见的概型}
@@ -76,5 +76,5 @@
 
 $B_k= \{ n \text{次试验中}A \text{出现}k\text{次} \}$
 \[
-    P(B_k) = C_n^k p^k (1-p)^{n-k}
+	P(B_k) = C_n^k p^k (1-p)^{n-k}
 \]

@@ -2,6 +2,7 @@
 *.fdb_latexmk
 *.thm
 *.log
+*.bak*
 *.toc
 *.out
 *.aux
