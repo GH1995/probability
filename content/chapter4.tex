@@ -3,8 +3,143 @@
 \section{数学期望}
 \label{sec:数学期望}
 
+\subsection{概念}
+\label{sub:概念}
+
+\subsubsection{一维}
+\label{ssub:一维}
+
+$ Y = \phi(X) $
+
+1. 离散型
+\[
+    \begin{aligned}
+        E\,X &= \sum x_i p_i \\
+        E\,Y &= \sum \phi(x_i) p_i
+    \end{aligned}
+\]
+
+2. 连续型
+\[
+    \begin{aligned}
+        E\,X &= \int_{-\infty}^{\infty} x f(x) \dif x \\
+        E\,Y &= \int_{-\infty}^{\infty} \phi(x) f(x) \dif x
+    \end{aligned}
+\]
+$f(x)\, \dif x = x_i$
+
+\subsubsection{二维}
+\label{ssub:二维}
+
+$Z = \phi(X, Y)$
+
+\[
+    \begin{aligned}
+        E\,Z &= \sum \sum \phi(x_i, y_i)  p_{ij} \\
+        E\,Z &= \int_{-\infty}^{\infty} \dif x \int_{-\infty}^{\infty}\phi(x,y) f(x,y) \dif y
+    \end{aligned}
+\]
+
+\subsection{性质}
+\label{sub:性质}
+
+\begin{enumerate}
+    \item $E(aX \pm bY) = aEX \pm bEY$
+    \item $\text{独立} \Rrightarrow E\,XY = (E\,X) (E\,Y)$ \&uad 反之不对！
+\end{enumerate}
+
 \section{方差}
 \label{sec:方差}
 
+\subsection{性质}
+\label{sub:性质}
+
+\begin{enumerate}
+    \item $D(aX+b) = a^2DX$
+    \item $\text{独立} \Rrightarrow D(aX+bY) = a^2DX + b^2DY$
+\end{enumerate}
+
+\subsection{常见的}
+\label{sub:常见的}
+常见随机变量的数学期望及方差
+
+\begin{table}[htpb]
+    \centering
+    \caption{常见随机变量的数学期望及方差}
+    \label{tab:label}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        分布                  & 分布函数/密度函数                                         & 期望                               & 方差              \\
+        \hline
+        $X \sim B(n,p)$       & $P\{X         = k\} = C_n^k \, p^k (1-p)^{n-k}$           & $np$                               & $np(1-p)$         \\
+        \hline
+        $X \sim \pi(\lambda)$ & $P\{X         = k\}=\frac{\lambda^ki}{k!}\exp(-\lambda)$  & $\lambda$                          & $\lambda$         \\
+        \hline
+        $X \sim G(p)$         & $P\{X                 = k\}=p(1-p)^{k-1}$                 & $\frac{1}{p}$                      & $\frac{1-p}{p^2}$ \\
+        \hline
+        $X \sim U(a,b)$ & $\begin{aligned}
+            f(x) &=\frac{1}{b-a} \\
+            F(x) &=\frac{x-a}{b-a}
+        \end{aligned}$ & $\frac{a+b}{2}$ & $\frac{(b-a)^2}{12}$ \\
+        \hline
+        $X \sim E(\lambda)$   & $\begin{aligned}
+            f(x) &= \lambda \exp(-\lambda x)\\
+            F(x)&= 1-\exp(-\lambda x)
+        \end{aligned}$ & $\frac{1}{\lambda}$ & $\frac{1}{\lambda^2}$ \\
+        \hline
+        $X \sim N(\mu,\sigma^2)$ & $f(x)=\frac{1}{\sqrt{2\pi\sigma}}\exp(-\frac{(x-\mu)^2}{2\sigma^2})$ & $\mu$ & $\sigma^2$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
 \section{协方差、相关系数}
 \label{sec:协方差_相关系数}
+
+\subsection{协方差}
+\label{sub:协方差}
+
+\subsubsection{定义}
+\label{ssub:定义}
+
+\[
+    \mathrm{cov}(X,Y) = E(X-EX)(Y-EY)
+\]
+
+\subsubsection{计算公式}
+\label{ssub:计算公式}
+
+\[
+    \mathrm{cov}(X,Y) = EXY-EX \cdot EY
+\]
+
+\subsubsection{性质}
+\label{ssub:性质}
+
+\begin{align}
+    \mathrm{cov}(X,X) &= DX \\
+    \mathrm{cov}(X,Y) &= \mathrm{cov}(Y,X) \\
+    \mathrm{cov}(aX+bY,Z) &= a\mathrm{cov}(X,Z) b\mathrm{cov}(Y,Z) \\
+    \mathrm{cov}(aX,bY) &= ab\mathrm{cov}(X,Y) \\
+    \text{不独立} &\Rrightarrow D(aX+bY) = a^2DX + b^2DY + 2ab\mathrm{cov}(X,Y)
+\end{align}
+
+\subsection{相关系数}
+\label{sub:相关系数}
+
+\subsubsection{定义}
+\label{ssub:定义}
+
+\[
+    \rho_{XY} = \frac{\mathrm{cov}(X,Y)}{\sqrt{DX}\sqrt{DY}}
+\]
+
+\subsubsection{性质}
+\label{ssub:性质}
+
+$\abs{\rho_{XY}} \leqslant 1$
+\begin{align}
+    \rho_{XY} \leqslant 1 \quad &\Longleftrightarrow \quad EXY = EX \times EY \\
+    \rho_{XY} = 1 \quad &\Longleftrightarrow \quad Y =aX+b,\,a>0 \\
+    \rho_{XY} =-1 \quad &\Longleftrightarrow \quad Y =aX+b,\,a<0 \\
+\end{align}
