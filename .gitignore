@@ -8,5 +8,6 @@
 *.aux
 *.fls
 *.synctex.gz
+*~
 deeplearningbook-chinese/
 elementary-math/
